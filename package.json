@@ -2,8 +2,11 @@
   "name": "test-nest",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Hector Poli",
   "private": true,
+  "engines": {
+    "node": "17.x"
+  },
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
