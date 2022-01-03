@@ -20,7 +20,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         logging: configService.get('POSTGRES_LOGGING').split(','),
       }),
     }),
-    MongooseModule.forRootAsync({
+    /* MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => {
         const username = config.get('MONGO_USERNAME');
@@ -34,7 +34,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         };
       },
       inject: [ConfigService],
-    }),
+      }),*/
   ],
 })
 export class DatabaseModule {}
