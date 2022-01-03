@@ -20,22 +20,24 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         logging: configService.get('POSTGRES_LOGGING').split(','),
       }),
     }),
-    /*MongooseModule.forRootAsync({
+    MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (config: ConfigService) => {
-        const username = config.get('MONGO_USERNAME');
-        const password = config.get('MONGO_PASSWORD');
-        const database = config.get('MONGO_DB');
-        const host = config.get('MONGO_HOSTNAME');
+      useFactory: async (config: ConfigService) => ({
+        //const username = config.get('MONGO_USERNAME');
+        //const password = config.get('MONGO_PASSWORD');
+        //const database = config.get('MONGO_DB');
+        //const host = config.get('MONGO_HOSTNAME');
 
-        return {
-	  uri: `mongodb://${username}:${password}@${host}`,
-	  dbName: database,
-	//uri: `mongodb+srv://${username}:${password}@cluster0.cgjk5.mongodb.net/${database}?retryWrites=true&w=majority`,
-        };
-      },
+        uri: config.get<string>('MONGODB_URI'),
+
+        /*return {
+        //uri: `mongodb://${username}:${password}@${host}`,
+        //dbName: database,
+        //uri: `mongodb+srv://${username}:${password}@cluster0.cgjk5.mongodb.net/${database}?retryWrites=true&w=majority`,
+        };*/
+      }),
       inject: [ConfigService],
-      }),*/
+    }),
   ],
 })
 export class DatabaseModule {}

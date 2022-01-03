@@ -31,7 +31,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 
     UserModule,
     DatabaseModule,
-    //LoggingModule,
+    LoggingModule,
     AuthenticationModule,
   ],
   controllers: [],
